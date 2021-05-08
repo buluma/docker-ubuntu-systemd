@@ -1,6 +1,6 @@
 FROM ubuntu
 
-LABEL maintainer="Robert de Bock <robert@meinit.nl>"
+LABEL maintainer="Michael Buluma"
 
 ENV container docker
 
