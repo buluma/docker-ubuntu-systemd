@@ -7,7 +7,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: "10 1 * * 0"
+    - cron: "30 *,* * * 0"
 
 jobs:
   # Test the image builds and works correctly.
