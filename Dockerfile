@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM buluma/ubuntu:latest
 
 LABEL maintainer="Michael Buluma"
 
