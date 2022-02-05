@@ -1,6 +1,7 @@
-FROM ubuntu
+FROM ubuntu:trusty
 
-LABEL maintainer="Michael Buluma"
+LABEL maintainer="Michael Buluma <me@buluma.co.ke>"
+LABEL build_date="2022-02-05"
 
 ENV container docker
 
