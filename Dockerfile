@@ -1,7 +1,7 @@
-FROM ubuntu:bionic
+FROM ubuntu:focal
 
 LABEL maintainer="Michael Buluma <me@buluma.co.ke>"
-LABEL build_date="2022-02-05"
+LABEL build_date="2022-01-03"
 
 ENV container docker
 
