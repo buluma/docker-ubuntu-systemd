@@ -27,5 +27,5 @@ docker run \
   --tty \
   --privileged \
   --volume /sys/fs/cgroup:/sys/fs/cgroup:ro \
-  buluma/ubuntu
+  buluma/docker-ubuntu-systemd
 ```
