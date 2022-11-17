@@ -1,7 +1,7 @@
 FROM ubuntu:bionic
 
 LABEL maintainer="Michael Buluma <me@buluma.co.ke>"
-LABEL build_date="2022-05-10"
+LABEL build_date="2022-17-11"
 
 ENV container docker
 
@@ -28,3 +28,5 @@ RUN apt-get update ; \
 VOLUME [ "/sys/fs/cgroup" ]
 
 CMD ["/lib/systemd/systemd"]
+
+CMD tail -f /dev/null
