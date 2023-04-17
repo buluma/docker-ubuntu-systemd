@@ -1,7 +1,7 @@
-FROM ubuntu:jammy
+FROM ubuntu:lunar
 
 LABEL maintainer="Michael Buluma"
-LABEL build_date="2022-17-11"
+LABEL build_date="2023-04-17"
 
 ENV container docker
 
