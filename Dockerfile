@@ -1,7 +1,7 @@
 FROM ubuntu:jammy
 
-LABEL maintainer="Michael Buluma"
-LABEL build_date="2022-17-11"
+LABEL maintainer="Michael Buluma <bulumaknight@gmail.com>"
+LABEL build_date="2023-06-09"
 
 ENV container docker
 
@@ -10,7 +10,7 @@ RUN sed -i 's/# deb/deb/g' /etc/apt/sources.list
 
 # Enable systemd.
 RUN apt-get update ; \
-    apt-get install -y systemd systemd-sysv sudo ; \
+    apt-get install -y systemd systemd-sysv ; \
     apt-get clean ; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* ; \
     cd /lib/systemd/system/sysinit.target.wants/ ; \
@@ -28,5 +28,3 @@ RUN apt-get update ; \
 VOLUME [ "/sys/fs/cgroup" ]
 
 CMD ["/lib/systemd/systemd"]
-
-CMD tail -f /dev/null
