@@ -1,7 +1,7 @@
-FROM ubuntu:jammy
+FROM ubuntu:noble
 
 LABEL maintainer="Michael Buluma <bulumaknight@gmail.com>"
-LABEL build_date="2023-06-09"
+LABEL build_date="2023-12-27"
 
 ENV container docker
 

@@ -26,4 +26,4 @@ jobs:
         with:
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: buluma/docker-ubuntu-systemd:${{ env.tag }}, buluma/docker-ubuntu-systemd:jammy, buluma/ubuntu:jammy, buluma/ubuntu:latest
+          tags: buluma/docker-ubuntu-systemd:noble
