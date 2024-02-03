@@ -1,4 +1,4 @@
-FROM ubuntu:jammy
+FROM ubuntu:latest
 
 LABEL maintainer="Michael Buluma <bulumaknight@gmail.com>"
 LABEL build_date="2024-02-02"
