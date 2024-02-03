@@ -4,26 +4,56 @@ on:
   push:
 
 jobs:
-  docker:
+  release:
+    name: Release
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
     steps:
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
+      - uses: actions/checkout@v4
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          # list of Docker images to use as base name for tags
+          images: |
+            name/app
+            ghcr.io/username/app
+          # generate Docker tags based on the following events/attributes
+          tags: |
+            type=schedule
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+            type=sha
+      - uses: docker/setup-qemu-action@v3
+      - uses: docker/setup-buildx-action@v3
+
       - name: Login to DockerHub
-        uses: docker/login-action@v1
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Set short
-        run: echo "short=${GITHUB_REF##*/}" >> "${GITHUB_ENV}"
-      - name: Set tag
-        run: echo "tag=${short/main/latest}" >> "${GITHUB_ENV}"
-      - name: Build and push
-        id: docker_build
-        uses: docker/build-push-action@v2
+
+      - name: Login to GHCR
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v3
         with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push image.
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          sbom: true
+          provenance: mode=min
+          file: fedora40/Dockerfile
           platforms: linux/amd64,linux/arm64
-          push: true
-          tags: buluma/docker-ubuntu-systemd:${{ env.tag }}, buluma/docker-ubuntu-systemd:jammy, buluma/ubuntu:jammy, buluma/ubuntu:latest
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: tags: buluma/docker-ubuntu-systemd:${{ env.tag }}, buluma/docker-ubuntu-systemd:jammy, buluma/ubuntu:jammy, buluma/ubuntu:latest
+          labels: ${{ steps.meta.outputs.labels }}

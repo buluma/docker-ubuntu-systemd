@@ -1,7 +1,11 @@
 FROM ubuntu:jammy
 
 LABEL maintainer="Michael Buluma <bulumaknight@gmail.com>"
-LABEL build_date="2023-06-09"
+LABEL build_date="2024-02-02"
+
+LABEL org.opencontainers.image.source=https://github.com/buluma/fedora
+LABEL org.opencontainers.image.description="Ansible Fedora Rawhide image"
+LABEL org.opencontainers.image.licenses=Apache-2.0
 
 ENV container docker
 
