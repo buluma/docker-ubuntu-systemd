@@ -55,5 +55,11 @@ jobs:
           file: Dockerfile
           platforms: linux/amd64,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
-          tags: buluma/docker-ubuntu-systemd:jammy, buluma/ubuntu:jammy, buluma/ubuntu:latest
+          tags: |
+            buluma/docker-ubuntu-systemd:latest
+            buluma/docker-ubuntu-systemd:jammy
+            buluma/ubuntu:jammy
+            buluma/ubuntu:latest
+            ghcr.io/buluma/docker-ubuntu-systemd:latest
+            ghcr.io/buluma/docker-ubuntu-systemd:jammy
           labels: ${{ steps.meta.outputs.labels }}
