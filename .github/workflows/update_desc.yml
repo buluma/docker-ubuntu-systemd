@@ -58,4 +58,6 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-          repository: buluma/fedora
+          repository: buluma/docker-ubuntu-systemd
+          short-description: ${{ github.event.repository.description }}
+          enable-url-completion: true
