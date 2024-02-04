@@ -12,7 +12,7 @@ This repository one branche that relate to Ubuntu a version.
 |-------|----------------------|----------------|
 |master |jammy (22.04)         |latest          |
 |lunar  |lunar lobster (23.04) |lunar           |
-|mantic |mantic lobster (23.10)|mantic          |
+|mantic |mantic rolling (23.10)|mantic          |
 |noble  |noble devel (24.04)   |devel           |
 |focal  |focal fossa (20.04)   |focal           |
 |bionic |bionic beaver (18.04) |bionic          |
