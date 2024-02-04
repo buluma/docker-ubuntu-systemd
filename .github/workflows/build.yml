@@ -55,5 +55,8 @@ jobs:
           file: Dockerfile
           platforms: linux/amd64,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
-          tags: buluma/docker-ubuntu-systemd:focal, buluma/ubuntu:focal
+          tags: |
+            buluma/docker-ubuntu-systemd:focal
+            buluma/ubuntu:focal
+            ghcr.io/buluma/docker-ubuntu-systemd:focal
           labels: ${{ steps.meta.outputs.labels }}
