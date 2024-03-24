@@ -3,9 +3,11 @@ FROM ubuntu:latest
 LABEL maintainer="Michael Buluma <bulumaknight@gmail.com>"
 LABEL build_date="2024-02-04"
 
-LABEL org.opencontainers.image.source=https://github.com/buluma/docker-ubuntu-systemd
-LABEL org.opencontainers.image.description=""
-LABEL org.opencontainers.image.licenses=Apache-2.0
+LABEL org.opencontainers.image.title="Docker Ubuntu Systemd" \
+      org.opencontainers.image.description="Ubuntu Container for Ansible Tests." \
+      org.opencontainers.image.url="https://github.com/buluma/docker-ubuntu-systemd/" \
+      org.opencontainers.image.source="https://github.com/buluma/docker-ubuntu-systemd" \
+      org.opencontainers.image.licenses="Apache-2.0"
 
 ENV container docker
 
