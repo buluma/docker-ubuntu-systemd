@@ -32,8 +32,8 @@ jobs:
         with:
           # list of Docker images to use as base name for tags
           images: |
-            name/app
-            ghcr.io/username/app
+            buluma/docker-ubuntu-systemd
+            ghcr.io/buluma/docker-ubuntu-systemd
           # generate Docker tags based on the following events/attributes
           tags: |
             type=schedule
@@ -60,4 +60,5 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           repository: buluma/docker-ubuntu-systemd
           short-description: ${{ github.event.repository.description }}
+          readme-filepath: ./README.md
           enable-url-completion: true
