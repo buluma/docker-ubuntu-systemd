@@ -1,11 +1,13 @@
 FROM ubuntu:lunar
 
 LABEL maintainer="Michael Buluma"
-LABEL build_date="2024-02-04"
+LABEL build_date="2024-03-24"
 
-LABEL org.opencontainers.image.source=https://github.com/buluma/docker-ubuntu-systemd
-LABEL org.opencontainers.image.description="Container to test Ansible roles in, including capabilities to use systemd facilities"
-LABEL org.opencontainers.image.licenses=Apache-2.0
+LABEL org.opencontainers.image.title="Docker Ubuntu Systemd" \
+      org.opencontainers.image.description="Ubuntu Container for Ansible Tests." \
+      org.opencontainers.image.url="https://github.com/buluma/docker-ubuntu-systemd/" \
+      org.opencontainers.image.source="https://github.com/buluma/docker-ubuntu-systemd" \
+      org.opencontainers.image.licenses="Apache-2.0"
 
 ENV container docker
 
